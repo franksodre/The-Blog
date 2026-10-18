@@ -3,20 +3,29 @@ import { Heading } from "@/app/components/heading";
 import { Posts } from "@/lib/posts";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 import Markdown from "react-markdown";
 
-export default async function Page({
+async function getPost(slug: string) {
+  "use cache"
+  const posts = new Posts()
+  const contents = await posts.find_post_by_slug(slug);
+  return contents
+}
+
+// This is bullshit, the amount of things I have to do just to make it happy.
+export async function Post({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  // I know it could be much better but I'm sleppy so anyway
   const { slug } = await params;
-  const post = new Posts();
-
-  // TODO: wrap this
-  const contents = await post.find_post_by_slug(slug);
+  const contents = await getPost(slug)
   const body = contents.slice(contents.lastIndexOf("---") + 3).trim();
-  const meta = post.__parse_metadata(contents);
+
+  const posts = new Posts()
+  const meta = posts.__parse_metadata(contents);
 
   const arrow = "←"; // I should probably use an svg 'cause I can rely in the font but ah...
   return (
@@ -70,4 +79,14 @@ export default async function Page({
       </footer>
     </>
   );
+}
+
+export default async function Page({ params }: {
+  params: Promise<{ slug: string }>
+}) {
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      <Post params={params} />
+    </Suspense>
+  )
 }
