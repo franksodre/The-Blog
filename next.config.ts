@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+import createMDX from '@next/mdx'
+
 const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
@@ -11,6 +13,18 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+      {
+        protocol: 'http',
+        hostname: '**',
+      },
+    ]
   },
 };
 
