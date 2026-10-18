@@ -1,10 +1,12 @@
 import Img from "@/app/asset_tmp/img.webp";
+import { Copy } from "@/app/components/copyraw";
 import { Heading } from "@/app/components/heading";
 import { Posts } from "@/lib/posts";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import Markdown from "react-markdown";
+import { ArrowLeft } from "lucide-react";
 
 async function getPost(slug: string) {
   "use cache"
@@ -33,16 +35,14 @@ export async function Post({
       {/*body*/}
       <section className="flex flex-col lg:gap-24 mb-20">
         <div className="hidden lg:block mx-31">
-          <span>
             <Link
               href="/"
-              className="border-b border-hidden hover:border-dotted dark:text-white font-semibold font-sans
-              hover:text-gray-500 transition-colors"
+              className="dark:text-white font-semibold font-sans
+              hover:text-gray-500 transition-colors flex items-center w-fit"
             >
-              <span className="mr-1.5 peer">{arrow}</span>
-              <span className="peer-hover:hidden tracking-wide font-normal">back</span>
+              <span className="mr-1.5 peer w-fit"><ArrowLeft size={16} /></span>
+              <span className="peer-hover:opacity-0 tracking-wide font-normal">back</span>
             </Link>
-          </span>
         </div>
         <div className="w-full max-w-181.5 flex flex-col lg:gap-24 sm:gap-16 mx-auto">
           {/*Heading*/}
@@ -67,6 +67,7 @@ export async function Post({
           </div>
           {/*Writing*/}
           <div className="w-full m-auto prose lg:prose-xl font-serif prose-headings:leading-[1.2em] dark:prose-invert">
+            <Copy data={body} />
             <div>
               {/*Content*/}
               <Markdown>{body}</Markdown>

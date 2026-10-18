@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link";
+import { Share } from "./share";
 
 export default function Nav() {
   return (
@@ -9,9 +10,7 @@ export default function Nav() {
         <div>
           <Link href="/" className="font-semibold text-2xl tracking-wide dark:text-white">The Blog</Link>
         </div>
-        <div>
-          <span className="text-gray-600 dark:text-gray-300 font-semibold">Share</span>
-        </div>
+          <Share />
       </div>
     </div>
   )

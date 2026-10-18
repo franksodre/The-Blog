@@ -12,7 +12,6 @@ export default async function Page() {
   }
 
   const arrow = '→'
-  // metadata?.[0].
   return (
     <>
       <div className="mx-auto max-w-3xl px-6 py-12">
