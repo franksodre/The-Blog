@@ -4,15 +4,12 @@
 import fs from "node:fs/promises";
 import fspath from "node:path";
 
-const path = fspath.relative("./", "contents/");
-
 type Metadata = Record<string, string>;
 
 export class Posts {
   private posts_dir: string;
   constructor() {
-    this.posts_dir = path;
-    console.log(this.posts_dir);
+    this.posts_dir = fspath.join(process.cwd(), "contents");
   }
 
   // maybe create a class for metadata parsing
@@ -85,20 +82,4 @@ export class Posts {
     }
     return metadata;
   }
-
-  //   public async get_posts_data_by_slug(): string | null {
-  //     const entries = await this.list_posts()
-  //     for (const entry of entries) {
-  //       if (!entry.isFile()) {
-  //         continue
-  //       }
-  //       const path = fspath.join(entry.parentPath, entry.name)
-  //       const data = await this.read_file(path)
-  //       if (data == null) {
-  //         return null
-  //       }
-  //
-  //       const metadata = this.__parse_metadata(data)
-  //     }
-  //   }
 }
