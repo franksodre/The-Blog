@@ -54,17 +54,19 @@ export async function Post({
             className="w-full"
           />
           {/*Image*/}
+          {/*
           <div className="my-3">
             <Image
-              src={Img}
+              src={}
               alt="Generic Image Pattern"
               className="w-170 h-95.5 m-auto object-contain"
             />
-            {/*Caption*/}
             <div className="w-full m-auto text-center">
               <span>Caption</span>
             </div>
           </div>
+          */}
+
           {/*Writing*/}
           <div className="w-full m-auto prose lg:prose-xl font-serif prose-headings:leading-[1.2em] dark:prose-invert">
             <Copy data={body} />
