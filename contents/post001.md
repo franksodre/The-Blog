@@ -14,3 +14,6 @@ want, really! Most of it being documenting stuff I've doing and some
 exploration btw I'm looking for intership for the high school so feel free to
 reach me out at frankdevtools@gmail.com
 
+Notice: This blog is still being developed since I've only made it work, but
+not the way I'd like it to. If it were the way I'd like it to be, it would
+include custom DSLs and other stuff, and no article would come out soon!
