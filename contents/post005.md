@@ -4,7 +4,10 @@ description: Is All Software Now Open Source?
 slug: my_thoughts_about_rea
 date: Oct 20, 2026
 ---
-# SOBRE O REA
+
+![rea_img](https://github.com/franksodre/The-Blog/blob/master/app/asset_tmp/rea_img.png?raw=true)
+
+## SOBRE O REA
 
 O [REA (Reverse Engineer Anything)](https://github.com/morluto/rea), criado em
 14 de abril de 2026, é uma ferramenta CLI e um servidor
